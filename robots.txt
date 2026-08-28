@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://bidwellchurch.org/sitemap.xml

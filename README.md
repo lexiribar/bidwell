@@ -9,10 +9,9 @@ dependencies — edit a `.html` file, commit, and GitHub Pages publishes it.
 
 ```
 index.html          Home
-about.html          Our Story (history + pastor timeline)
-leadership.html     Rev. Dr. B. DeNeice Welch
-ministries.html     Church ministries
-outreach.html       Community partners and outreach
+about.html          Our Story (church history)
+leadership.html     Pastoral succession + the current search
+ministries.html     Church ministries and community outreach
 events.html         Weekly schedule + upcoming events
 visit.html          Plan a Visit — times, address, map
 404.html            Not-found page (GitHub Pages serves this automatically)

@@ -285,6 +285,17 @@ p:last-child { margin-bottom: 0; }
 .entries h3 { margin-bottom: .4rem; }
 .entries p { color: var(--ink-soft); max-width: var(--measure-text); }
 
+/* ---------- Compact bulleted list ---------- */
+.bullets { list-style: none; margin: 0; padding: 0; max-width: var(--measure-text); }
+.bullets > li { position: relative; padding: .8rem 0 .8rem 1.5rem; border-bottom: 1px solid var(--rule); }
+.bullets > li:first-child { border-top: 1px solid var(--rule); }
+.bullets > li::before {
+  content: ""; position: absolute; left: 0; top: 1.45rem;
+  width: 6px; height: 6px; border-radius: 50%; background: var(--gold);
+}
+.bullets strong { font-family: var(--font-display); font-weight: 600; }
+.bullets span { color: var(--ink-soft); }
+
 /* ---------- Timeline (history page) ---------- */
 .timeline { list-style: none; margin: 0; padding: 0; border-left: 2px solid var(--stone-mid); }
 .timeline > li { position: relative; padding: 0 0 2.25rem 1.75rem; }

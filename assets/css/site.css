@@ -296,6 +296,46 @@ p:last-child { margin-bottom: 0; }
 .bullets strong { font-family: var(--font-display); font-weight: 600; }
 .bullets span { color: var(--ink-soft); }
 
+/* ---------- Expandable roster (leadership page) ---------- */
+.roster { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--rule); }
+.roster > li { border-bottom: 1px solid var(--rule); }
+
+.roster summary {
+  display: flex; align-items: flex-start; justify-content: space-between; gap: 1.5rem;
+  padding: 1.25rem 0; cursor: pointer;
+  list-style: none;                 /* Firefox */
+}
+.roster summary::-webkit-details-marker { display: none; }   /* Safari/Chrome */
+.roster summary:hover .roster__name { color: var(--brick); }
+.roster summary:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+
+.roster__name {
+  display: block;
+  font-family: var(--font-display); font-size: 1.125rem; font-weight: 600;
+  color: var(--ink); line-height: 1.3;
+  transition: color .15s ease;
+}
+.roster__years {
+  display: block; margin-top: .3rem;
+  font-size: .8125rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--brick);
+}
+.roster__chev {
+  flex: none; margin-top: .55rem;
+  width: .55rem; height: .55rem;
+  border-right: 2px solid var(--brick); border-bottom: 2px solid var(--brick);
+  transform: rotate(45deg); transform-origin: center;
+  transition: transform .2s ease;
+}
+.roster details[open] .roster__chev,
+.roster > li > details[open] .roster__chev { transform: rotate(-135deg); }
+
+.roster__body { padding: 0 0 1.5rem; max-width: var(--measure-text); }
+.roster__body p { color: var(--ink-soft); }
+.roster__body .pullquote { margin-bottom: 0; }
+
+@media (prefers-reduced-motion: reduce) { .roster__chev { transition: none; } }
+
 /* ---------- Timeline (history page) ---------- */
 .timeline { list-style: none; margin: 0; padding: 0; border-left: 2px solid var(--stone-mid); }
 .timeline > li { position: relative; padding: 0 0 2.25rem 1.75rem; }

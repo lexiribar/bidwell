@@ -3,3 +3,6 @@ Photos/
 
 .DS_Store
 Thumbs.db
+
+# Review PDFs generated from the site — regenerate rather than commit.
+*.pdf

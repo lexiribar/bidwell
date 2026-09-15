@@ -46,13 +46,13 @@ python3 -m http.server 8000
 
 Then open <http://localhost:8000>.
 
-## Deploying to GitHub Pages
+## Hosting
 
-1. In the repo: **Settings → Pages → Source: Deploy from a branch → `main` / `root`**.
-2. GitHub Pages on a **private** repo requires a paid plan. This repo is currently private —
-   make it public (normal for a church website) or upgrade before Pages will serve it.
-3. The site will first appear at `https://lexiribar.github.io/bidwell/`. Check it there before
-   pointing the domain at it.
+The site is live on GitHub Pages at <https://lexiribar.github.io/bidwell/>, published from the
+`main` branch. Every push to `main` republishes it within a minute or two.
+
+The repository is public, which is required for Pages on a free GitHub account. Commits use the
+GitHub no-reply address for privacy, set in this repo's local git config — keep it that way.
 
 ### Custom domain (bidwellchurch.org)
 

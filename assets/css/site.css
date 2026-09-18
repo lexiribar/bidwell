@@ -214,24 +214,72 @@ p:last-child { margin-bottom: 0; }
 
 /* ---------- Hero ---------- */
 .hero { position: relative; background: var(--brown-dark); color: var(--white); }
-.hero__media { position: absolute; inset: 0; }
-.hero__media img { width: 100%; height: 100%; object-fit: cover; opacity: .55; }
-/* Warm the black-and-white photo toward the palette and keep the text legible. */
-.hero__media::after {
-  content: ""; position: absolute; inset: 0;
-  background: linear-gradient(90deg, rgba(63,40,25,.92) 0%, rgba(63,40,25,.7) 45%, rgba(63,40,25,.25) 100%);
+
+/* The photo is zoomed around the "Bidwell United Presbyterian Church"
+   lettering on the building, which sits at 50.6% / 45.7% of the source image.
+   --hx/--hy move that point within the hero; --hz is the zoom. */
+.hero__media {
+  position: absolute; inset: 0; overflow: hidden;
+  isolation: isolate;          /* keeps the grain's blend inside the photo */
+  --hx: 0%; --hy: 0%; --hz: 1;
 }
+.hero__media img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: 50.6% 45.7%;
+  transform-origin: 50.6% 45.7%;
+  transform: translate(var(--hx), var(--hy)) scale(var(--hz));
+  opacity: .78;
+}
+/* Warm the photo toward the palette and keep the text legible. */
+.hero__media::after {
+  content: ""; position: absolute; inset: 0; z-index: 1;
+  background: linear-gradient(90deg,
+    rgba(63,40,25,.94) 0%, rgba(63,40,25,.86) 38%,
+    rgba(63,40,25,.35) 58%, rgba(63,40,25,.12) 100%);
+}
+/* Film grain, applied at screen resolution so it stays fine at any zoom. */
+.hero__media::before {
+  content: ""; position: absolute; inset: 0; z-index: 2; pointer-events: none;
+  /* Gaussian noise centered on 50% gray: overlay-neutral, so it adds texture
+     without brightening the photo. Tile is 160px; pixelated keeps it crisp. */
+  background-image: url("../img/grain.png");
+  background-size: 160px 160px;
+  image-rendering: pixelated;
+  mix-blend-mode: overlay;
+  opacity: .28;
+}
+
 .hero__seal { width: 112px; height: 112px; margin-bottom: 1.5rem;
               filter: drop-shadow(0 6px 18px rgba(0,0,0,.35)); }
 .hero__inner {
   position: relative;
   padding-block: clamp(4rem, 12vw, 8.5rem);
-  max-width: 46rem;
 }
+/* Text holds the left of the page grid; the building fills the right. */
+.hero__inner > * { max-width: 34rem; }
 .hero h1 { color: var(--white); margin-bottom: .35em; }
 .hero__eyebrow { color: var(--gold-light); }
 .hero p { color: rgba(255,255,255,.9); font-size: 1.1875rem; }
 .hero .btn-row { margin-top: 2rem; }
+
+/* Wide screens: building and its name on the right third. */
+@media (min-width: 52rem) {
+  .hero__media { --hx: 30%; --hy: -2%; --hz: 2; }   /* narrower desktops: clear the text */
+}
+@media (min-width: 72rem) {
+  .hero__media { --hx: 24%; }
+}
+/* Phones and small tablets: text on top, the building and its name below. */
+@media (max-width: 51.99rem) {
+  .hero__inner { padding-bottom: 17rem; }
+  .hero__media { --hx: 0%; --hy: 34%; --hz: 1.9; }
+  .hero__media::after {
+    background: linear-gradient(180deg,
+      rgba(63,40,25,.94) 0%, rgba(63,40,25,.86) 52%,
+      rgba(63,40,25,.3) 72%, rgba(63,40,25,.1) 100%);
+  }
+}
 
 /* Compact hero for interior pages */
 .page-hero {

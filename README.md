@@ -54,6 +54,17 @@ The site is live on GitHub Pages at <https://lexiribar.github.io/bidwell/>, publ
 The repository is public, which is required for Pages on a free GitHub account. Commits use the
 GitHub no-reply address for privacy, set in this repo's local git config — keep it that way.
 
+### Cache-busting
+
+GitHub Pages tells browsers to cache files for 10 minutes, so every page links the stylesheet
+and script with a version tag (`site.css?v=1a2b3c4d`). **After changing `site.css` or `nav.js`,
+update the tag** so visitors get the new file immediately — it is the first 8 characters of the
+file's SHA-1:
+
+```
+shasum assets/css/site.css | cut -c1-8
+```
+
 ### Custom domain (bidwellchurch.org)
 
 Do this only when the new site is ready to replace the current one — it takes the old site down.

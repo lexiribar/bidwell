@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Inter:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/site.css?v=cc67c075">
+<link rel="stylesheet" href="assets/css/site.css?v=dd2e0305">
 <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png">
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 </head>
@@ -33,6 +33,7 @@
       <li><a href="ministries.html">Ministries</a></li>
       <li><a href="events.html" aria-current="page">Events</a></li>
       <li class="nav__cta"><a href="visit.html">Plan a Visit</a></li>
+      <li class="nav__cta nav__cta--give"><a href="https://secure.myvanco.com/L-YS1N/home" target="_blank" rel="noopener">Give</a></li>
       </ul>
     </nav>
   </div>
@@ -42,7 +43,7 @@
   <div class="wrap">
     <p class="eyebrow">Events</p>
     <h1>What&rsquo;s happening at Bidwell</h1>
-    <p>Worship, study, and fellowship throughout the year. <em>This page needs current listings &mdash; the structure below shows how each one will look.</em></p>
+    <p>Worship, study, and fellowship throughout the year.</p>
   </div>
 </section>
 
@@ -63,10 +64,14 @@
       <div class="times__item">
         <p class="times__label">Wednesday</p>
         <p class="times__when">7:00 p.m.</p>
-        <p class="times__note">Adult Bible study on Zoom &mdash; book by book</p>
+        <p class="times__note">Via Zoom. Call the church office for details</p>
       </div>
     </div>
 
+    <!-- Upcoming events are hidden until there are listings to show.
+         To bring them back, replace the <template> tags below with a plain <div>,
+         or move the markup out of the template. -->
+    <template id="upcoming-events">
     <h2>Upcoming</h2>
     <p class="lede" style="max-width:var(--measure-text);margin-bottom:2rem">Send along the next few events and
       they will replace the example below.</p>
@@ -82,11 +87,12 @@
         <p class="event__meta">12:00 p.m. &ndash; 4:00 p.m. &middot; Bidwell Presbyterian Church &middot; Free and open to the public</p>
         <p>A sentence or two describing the event and who it is for. The previous site&rsquo;s last listing was a
           Bidwell Sales Fair supporting the congregation&rsquo;s business owners and food vendors, with music, food,
-          and 10% of proceeds benefiting the church &mdash; a good model for how these read.</p>
+          and 10% of proceeds benefiting the church, a good model for how these read.</p>
       </div>
     </div>
+    </template>
   </div>
-</section>
+  </section>
 
 <section class="section section--stone">
   <div class="wrap prose">
@@ -114,9 +120,9 @@
     <div>
       <h3>Gather With Us</h3>
       <ul class="footer__list">
-        <li>Sunday Worship &mdash; 11:00 a.m.</li>
-        <li>Sunday Bible Study &mdash; 10:00 a.m.</li>
-        <li>Bible Study &mdash; Wednesdays, 7:00 p.m. on Zoom</li>
+        <li>Sunday Worship: 11:00 a.m.</li>
+        <li>Sunday Bible Study: 10:00 a.m.</li>
+        <li>Bible Study: Wednesdays, 7:00 p.m. via Zoom</li>
       </ul>
     </div>
     <div>

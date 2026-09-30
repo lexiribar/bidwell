@@ -186,6 +186,10 @@ p:last-child { margin-bottom: 0; }
   padding: .5rem 1rem; color: var(--brown); font-weight: 600;
 }
 .nav__list .nav__cta a:hover { background: var(--brown); color: var(--white); }
+.nav__list .nav__cta--give a {
+  background: var(--gold); border-color: var(--gold); color: var(--ink);
+}
+.nav__list .nav__cta--give a:hover { background: var(--gold-light); border-color: var(--gold-light); color: var(--ink); }
 
 @media (max-width: 60rem) {
   .nav-toggle { display: inline-flex; }
@@ -202,6 +206,7 @@ p:last-child { margin-bottom: 0; }
   .nav__list a { display: block; padding: .9rem 0; font-size: 1rem; border-bottom: none; }
   .nav__list a[aria-current="page"] { color: var(--brown); }
   .nav__list .nav__cta { border-top: none; padding-top: 1rem; }
+  .nav__list .nav__cta--give { padding-top: .6rem; }
   .nav__list .nav__cta a { text-align: center; }
 }
 
@@ -210,6 +215,12 @@ p:last-child { margin-bottom: 0; }
   .brand__seal { width: 44px; height: 44px; }
   .brand__name { font-size: .9375rem; }
   .brand__tag { display: none; }
+}
+
+@media (min-width: 60rem) {
+  /* The name sits right at the wrap threshold; keep it on one line where
+     the full nav is shown. */
+  .brand__name { white-space: nowrap; }
 }
 
 /* ---------- Hero ---------- */

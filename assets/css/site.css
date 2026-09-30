@@ -87,6 +87,11 @@ p:last-child { margin-bottom: 0; }
   padding-inline: var(--gutter);
 }
 .prose { max-width: var(--measure-text); }
+/* When .prose sits on the .wrap itself, the narrow column would otherwise be
+   centered in the window. Keep the block on the page grid and cap the
+   children instead, so the text starts at the same left edge as everything else. */
+.wrap.prose { max-width: var(--measure); }
+.wrap.prose > * { max-width: var(--measure-text); }
 .prose > * + h2 { margin-top: 2em; }
 .prose > * + h3 { margin-top: 1.75em; }
 .prose > .eyebrow + h2, .prose > .eyebrow + h3 { margin-top: 0; }

@@ -6,20 +6,24 @@
   var nav = document.querySelector('.site-nav');
   if (!toggle || !nav) return;
 
+  function isOpen() { return nav.classList.contains('is-open'); }
   function setOpen(open) {
     nav.classList.toggle('is-open', open);
     toggle.setAttribute('aria-expanded', String(open));
   }
 
-  toggle.addEventListener('click', function () {
-    setOpen(!nav.classList.contains('is-open'));
-  });
+  toggle.addEventListener('click', function () { setOpen(!isOpen()); });
 
   document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape' && nav.classList.contains('is-open')) {
+    if (e.key === 'Escape' && isOpen()) {
       setOpen(false);
       toggle.focus();
     }
+  });
+
+  // A tap anywhere outside the open menu closes it.
+  document.addEventListener('click', function (e) {
+    if (isOpen() && !nav.contains(e.target) && !toggle.contains(e.target)) setOpen(false);
   });
 
   // Reset state when returning to the desktop layout.

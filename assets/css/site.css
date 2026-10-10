@@ -166,7 +166,7 @@ p:last-child { margin-bottom: 0; }
   display: none;
   align-items: center; gap: .5rem;
   background: none; border: 1px solid var(--rule); border-radius: 2px;
-  padding: .55rem .8rem;
+  min-height: 44px; padding: .6rem 1rem;
   font: inherit; font-size: .875rem; font-weight: 600;
   color: var(--ink); cursor: pointer;
 }
@@ -335,7 +335,7 @@ p:last-child { margin-bottom: 0; }
 }
 .card h3 { margin-bottom: .5rem; }
 .card p { color: var(--ink-soft); font-size: .9688rem; }
-.card__link { margin-top: auto; padding-top: 1rem; font-weight: 600; font-size: .9375rem; text-decoration: none; }
+.card__link { margin-top: auto; padding: 1rem 0 .4rem; font-weight: 600; font-size: .9375rem; text-decoration: none; }
 .card__link::after { content: " →"; }
 .card__link:hover { text-decoration: underline; }
 
@@ -466,10 +466,26 @@ p:last-child { margin-bottom: 0; }
 .info-grid h3 { font-size: 1.0625rem; margin-bottom: .4rem; }
 .info-grid p, .info-grid address { font-style: normal; color: var(--ink-soft); }
 
-.map-embed {
-  width: 100%; aspect-ratio: 16 / 9; border: 1px solid var(--rule); background: var(--stone-mid);
+/* Static map: always renders, never hijacks scrolling, and tapping it opens directions. */
+.getting-here {
+  display: grid; gap: clamp(1.5rem, 4vw, 3rem); align-items: center;
+  grid-template-columns: 1fr;
 }
-@media (max-width: 42rem) { .map-embed { aspect-ratio: 4 / 3; } }
+@media (min-width: 52rem) { .getting-here { grid-template-columns: .8fr 1.2fr; } }
+.getting-here address { font-style: normal; color: var(--ink-soft); margin: 1rem 0 1.5rem; }
+.map { margin: 0; }
+.map__link { display: block; border: 1px solid var(--rule); overflow: hidden; }
+.map__link img {
+  display: block; width: 100%; height: auto;
+  aspect-ratio: 16 / 9; object-fit: cover;
+  object-position: 46.5% 55%;          /* the pin */
+  transition: transform .3s ease;
+}
+.map__link:hover img { transform: scale(1.02); }
+@media (max-width: 42rem) { .map__link img { aspect-ratio: 4 / 3; } }
+@media (prefers-reduced-motion: reduce) { .map__link img { transition: none; } }
+.map figcaption { margin-top: .5rem; font-size: .75rem; color: var(--ink-soft); text-align: right; }
+.map figcaption a { color: inherit; }
 
 /* ---------- CTA band ---------- */
 .band { background: var(--brown); color: var(--white); }
@@ -495,6 +511,12 @@ p:last-child { margin-bottom: 0; }
 .footer__grid h3 { color: var(--gold-light); font-size: .8125rem; letter-spacing: .14em; text-transform: uppercase; font-family: var(--font-body); font-weight: 700; margin-bottom: 1rem; }
 .footer__list { list-style: none; margin: 0; padding: 0; }
 .footer__list li + li { margin-top: .55rem; }
+@media (max-width: 60rem) {
+  /* Thumb-sized rows for standalone links on phones and tablets */
+  .footer__list a, .site-footer address a, .link-list a { display: inline-block; padding-block: .65rem; }
+  .footer__list li:has(> a) + li { margin-top: 0; }
+}
+.link-list { padding-left: 1.2rem; }
 .footer__seal { width: 72px; height: 72px; margin-bottom: 1rem; }
 .footer__brand-name { font-family: var(--font-label); font-weight: 700; font-size: 1.125rem; color: var(--white); margin-bottom: .5rem; }
 .footer__bottom {

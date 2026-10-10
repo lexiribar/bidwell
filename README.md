@@ -11,8 +11,8 @@ dependencies — edit a `.html` file, commit, and GitHub Pages publishes it.
 index.html          Home
 about.html          Our Story (church history)
 leadership.html     Pastoral succession + the current search
-ministries.html     Church ministries and community outreach
-events.html         Weekly schedule + upcoming events
+ministries.html     Ministries and community partners
+events.html         Hidden for now (see below)
 visit.html          Plan a Visit — times, address, map
 404.html            Not-found page (GitHub Pages serves this automatically)
 
@@ -79,6 +79,12 @@ repo's Settings → Pages.
 - `assets/img/share-card.jpg` (1200×630) — the preview image for Facebook, texts, and email.
   Each page carries Open Graph and Twitter tags pointing to it.
 - `index.html` has schema.org `Church` structured data (address, phone, coordinates).
+- `assets/img/map-bidwell.webp` — static map for Plan a Visit, built from OpenStreetMap tiles
+  with the pin on the sanctuary (OSM way 518368350). It replaced an embedded map: OSM's embed now
+  needs WebGL, Google's no-key embed refuses framing, and live maps trap scrolling on phones.
+  Attribution is shown as text under the image (required by the ODbL).
+- `events.html` is hidden from navigation and the sitemap (and marked noindex) until there are
+  events to list. The listing markup is kept inside a `<template>` on that page.
 - `404.html` uses root-absolute links (`/assets/...`) so it renders on any missing URL.
 
 To re-check a share preview after changing it, paste the page URL into Facebook's Sharing

@@ -510,12 +510,3 @@ p:last-child { margin-bottom: 0; }
   height: 1px; background: rgba(226,184,101,.25);
 }
 
-/* ---------- Editorial note (remove before launch) ---------- */
-.draft-note {
-  background: #fbf1d9;
-  border-bottom: 1px solid #e6d3a3;
-  color: #5a4214;
-  font-size: .875rem;
-  padding: .65rem 0;
-}
-.draft-note p { margin: 0; }

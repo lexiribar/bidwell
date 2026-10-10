@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://bidwellchurch.org/sitemap.xml
+Sitemap: https://bidwellchurchpgh.org/sitemap.xml

@@ -1,0 +1,14 @@
+{
+  "name": "Bidwell Presbyterian Church",
+  "short_name": "Bidwell",
+  "description": "Bidwell Presbyterian Church in Manchester on Pittsburgh's North Side. Welcome to the Well.",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#fffbf5",
+  "theme_color": "#fffbf5",
+  "icons": [
+    { "src": "assets/img/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "assets/img/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "assets/img/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

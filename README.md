@@ -1,4 +1,4 @@
-# bidwellchurch.org
+# bidwellchurchpgh.org
 
 Static website for **Bidwell Presbyterian Church**, 1025 Liverpool Street, Manchester, Pittsburgh PA 15233.
 
@@ -48,11 +48,41 @@ Then open <http://localhost:8000>.
 
 ## Hosting
 
-The site is live on GitHub Pages at <https://lexiribar.github.io/bidwell/>, published from the
-`main` branch. Every push to `main` republishes it within a minute or two.
+Live at **<https://bidwellchurchpgh.org>**, served by GitHub Pages from the `main` branch. Every
+push to `main` republishes within a minute or two. The `CNAME` file in the repo root tells GitHub
+which domain to answer on — don't delete it.
 
 The repository is public, which is required for Pages on a free GitHub account. Commits use the
 GitHub no-reply address for privacy, set in this repo's local git config — keep it that way.
+
+### DNS (GoDaddy)
+
+The domain is registered at GoDaddy, which also hosts its DNS:
+
+| Type  | Name | Value                  |
+|-------|------|------------------------|
+| A     | @    | 185.199.108.153        |
+| A     | @    | 185.199.109.153        |
+| A     | @    | 185.199.110.153        |
+| A     | @    | 185.199.111.153        |
+| CNAME | www  | lexiribar.github.io    |
+
+`www.bidwellchurchpgh.org` redirects to the bare domain automatically. HTTPS is enforced in the
+repo's Settings → Pages.
+
+### Icons, previews, and search
+
+- `favicon.ico` and `assets/img/favicon-96.png` — browser tab; the seal's centre medallion only,
+  because the full seal is illegible at 16 px.
+- `assets/img/apple-touch-icon.png`, `icon-192.png`, `icon-512.png`, `icon-maskable-512.png` —
+  phone home screens; the full seal. Listed in `site.webmanifest`.
+- `assets/img/share-card.jpg` (1200×630) — the preview image for Facebook, texts, and email.
+  Each page carries Open Graph and Twitter tags pointing to it.
+- `index.html` has schema.org `Church` structured data (address, phone, coordinates).
+- `404.html` uses root-absolute links (`/assets/...`) so it renders on any missing URL.
+
+To re-check a share preview after changing it, paste the page URL into Facebook's Sharing
+Debugger (<https://developers.facebook.com/tools/debug/>) and click "Scrape Again".
 
 ### Cache-busting
 
@@ -64,14 +94,3 @@ file's SHA-1:
 ```
 shasum assets/css/site.css | cut -c1-8
 ```
-
-### Custom domain (bidwellchurch.org)
-
-Do this only when the new site is ready to replace the current one — it takes the old site down.
-
-1. At the DNS host for `bidwellchurch.org`, create four `A` records for the apex pointing to
-   `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`, and a `CNAME`
-   for `www` pointing to `lexiribar.github.io`.
-2. Add a `CNAME` file to the repo root containing one line: `bidwellchurch.org`
-3. In **Settings → Pages**, set the custom domain and enable **Enforce HTTPS** once the
-   certificate is issued.
